@@ -1,0 +1,14 @@
+version: '3'
+services:
+  ss2http-docker:
+    container_name: ss2http-docker
+    image: geektr/ss2http-docker
+    restart: unless-stopped
+    volumes:
+      - './privoxy.conf:/etc/privoxy/config'
+      - './local.json:/etc/shadowsocks-libev/local.json'
+      - './tunnel.json:/etc/shadowsocks-libev/tunnel.json'
+    ports:
+      - "53:53"
+      - "1080:1080"
+      - "3128:3128"
